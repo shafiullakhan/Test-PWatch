@@ -1,31 +1,38 @@
+// Theme configuration for PetCare app
+
 export const colors = {
-  primary: '#D96F60', 
+  // Primary colors
+  primary: '#D96F60', // rgb(217, 111, 96)
   primaryLight: '#E08A7D',
   primaryDark: '#C85A49',
-  secondary: '#6B9F7D', 
-  secondaryLight: '#8CB49F',
-  secondaryDark: '#4A7C5D',
-  accent: '#F4A261', 
-  accentLight: '#F6B685',
-  accentDark: '#E6934A',
+  
+  // Neutral colors
   white: '#FFFFFF',
   black: '#000000',
+  
+  // Gray scale
+  gray: '#6C757D',
+  darkGray: '#495057',
+  lightGray: '#F1F3F4',
+  
+  // Background colors
+  background: '#F8F9FA',
+  surface: '#FFFFFF',
+  
+  // Text colors
+  textPrimary: '#333333',
+  textSecondary: '#666666',
 };
-export const darkColors = {
-  primary: '#C85A49', 
-  primaryLight: '#E08A7D',
-  primaryDark: '#D96F60',
-  secondary: '#4A7C5D', 
-  secondaryLight: '#8CB49F',
-  secondaryDark: '#6B9F7D',
-  accent: '#E6934A', 
-  accentLight: '#F6B685',
-  accentDark: '#F4A261',
-  white: '#FFFFFF',
-  black: '#000000',
+
+export const borderRadius = {
+  sm: 4,
+  md: 8,
+  lg: 16,
+  xl: 30,
 };
 export const theme = {
   colors,
+  borderRadius,
 };
 
 export default theme;

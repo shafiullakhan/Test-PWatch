@@ -1,4 +1,3 @@
-import React from 'react';
 import { View, Text, Animated } from 'react-native';
 import { headerStyles as styles, HEADER_HEIGHT } from '../styles/headerStyles';
 
@@ -45,6 +44,8 @@ const Header = ({ scrollY }) => {
           },
         ]}
         resizeMode="cover"
+        onError={(error) => console.log('Image loading error:', error)}
+        onLoad={() => console.log('Image loaded successfully')}
       />
       <View style={styles.headerOverlay} />
       <Animated.View

@@ -1,12 +1,11 @@
 import { StyleSheet } from 'react-native';
-import { theme } from '../constants/theme';
 
 export const homeScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.primaryLight,
+    backgroundColor: '#F5F5F5',
   },
   listContainer: {
-    padding: 16,
+    paddingBottom: 8,
   },
 });
