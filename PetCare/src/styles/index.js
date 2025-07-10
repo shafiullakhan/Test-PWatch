@@ -9,3 +9,4 @@ export { petMapViewStyles } from './petMapViewStyles';
 export { petLocationCardStyles } from './petLocationCardStyles';
 export { mapScreenStyles } from './mapScreenStyles';
 export { adoptButtonStyles } from './adoptButtonStyles';
+export { imageModalStyles } from './imageModalStyles';
