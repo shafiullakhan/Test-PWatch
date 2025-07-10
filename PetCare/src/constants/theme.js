@@ -9,6 +9,7 @@ export const colors = {
   // Neutral colors
   white: '#FFFFFF',
   black: '#000000',
+  transparent: 'transparent',
   
   // Gray scale
   gray: '#6C757D',
