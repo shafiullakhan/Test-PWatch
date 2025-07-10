@@ -5,7 +5,9 @@ import { petMapViewStyles as styles } from '../styles/petMapViewStyles';
 
 const PetMapView = ({ petLocation }) => {
   const [userLocation, setUserLocation] = useState(null);
+  const [userLocationName, setUserLocationName] = useState(null);
   const [locationPermission, setLocationPermission] = useState(false);
+  const [loadingLocationName, setLoadingLocationName] = useState(false);
 
   useEffect(() => {
     requestLocationPermission();
@@ -33,12 +35,47 @@ const PetMapView = ({ petLocation }) => {
       const location = await Location.getCurrentPositionAsync({
         accuracy: Location.Accuracy.Balanced,
       });
-      setUserLocation({
+      const coords = {
         latitude: location.coords.latitude,
         longitude: location.coords.longitude,
-      });
+      };
+      setUserLocation(coords);
+      
+      await getLocationName(coords);
     } catch (error) {
       console.error('Get location error:', error);
+    }
+  };
+
+  const getLocationName = async (coords) => {
+    try {
+      setLoadingLocationName(true);
+      const result = await Location.reverseGeocodeAsync({
+        latitude: coords.latitude,
+        longitude: coords.longitude,
+      });
+      
+      if (result && result.length > 0) {
+        const address = result[0];
+        // Build a readable address from components
+        const addressComponents = [
+          address.street,
+          address.district,
+          address.city,
+          address.region,
+          address.country
+        ].filter(Boolean);
+        
+        const locationName = addressComponents.join(', ');
+        setUserLocationName(locationName || 'Unknown Location');
+      } else {
+        setUserLocationName('Unknown Location');
+      }
+    } catch (error) {
+      console.error('Reverse geocoding error:', error);
+      setUserLocationName('Unable to determine location');
+    } finally {
+      setLoadingLocationName(false);
     }
   };
 
@@ -89,6 +126,12 @@ const PetMapView = ({ petLocation }) => {
           <Text style={styles.locationTitle}>📱 Your Location</Text>
           {userLocation ? (
             <>
+              {/* Show location name if available */}
+              {userLocationName && (
+                <Text style={styles.locationText}>
+                  {loadingLocationName ? 'Getting location name...' : userLocationName}
+                </Text>
+              )}
               <Text style={styles.coordinatesText}>
                 📍 {userLocation.latitude.toFixed(4)}, {userLocation.longitude.toFixed(4)}
               </Text>
