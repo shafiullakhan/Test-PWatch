@@ -1,7 +1,7 @@
 import { View, Text, Animated } from 'react-native';
 import { headerStyles as styles, HEADER_HEIGHT } from '../styles/headerStyles';
 
-const Header = ({ scrollY }) => {
+const HomeHeader = ({ scrollY }) => {
   const headerTranslateY = scrollY.interpolate({
     inputRange: [0, HEADER_HEIGHT],
     outputRange: [0, -HEADER_HEIGHT / 2],
@@ -68,4 +68,4 @@ const Header = ({ scrollY }) => {
   );
 };
 
-export default Header;
+export default HomeHeader;

@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { list } from '../constants/mockData';
 import { homeScreenStyles as styles } from '../styles/homeScreenStyles';
-import { Header, PetItem } from '../components';
+import { HomeHeader, PetItem } from '../components';
 import { HEADER_HEIGHT } from '../styles/headerStyles';
 
 
@@ -22,7 +22,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="light" />
-      <Header scrollY={scrollY} />
+      <HomeHeader scrollY={scrollY} />
       <Animated.FlatList
         data={list}
         renderItem={renderItem}

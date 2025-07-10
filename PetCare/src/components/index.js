@@ -1,2 +1,2 @@
 export { default as PetItem } from './PetItem';
-export { default as Header } from './Header';
+export { default as HomeHeader } from './HomeHeader';
