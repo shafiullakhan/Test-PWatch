@@ -1,21 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import HomeScreen from './src/screens/HomeScreen';
-import { ThemeProvider } from './src/contexts/ThemeContext';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import AppNavigator from './src/navigation/AppNavigator';
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <View style={styles.container}>
-        <HomeScreen />
-        <StatusBar style="auto" />
-      </View>
-    </ThemeProvider>
+    <NavigationContainer>
+      <AppNavigator />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
