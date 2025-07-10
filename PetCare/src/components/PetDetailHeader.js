@@ -13,12 +13,14 @@ const PetDetailHeader = ({ title }) => {
     navigation.goBack();
   };
 
-  if (!selectedPet) {
+  // If custom title is provided, show it even without selected pet
+  // If no custom title and no selected pet, return null
+  if (!title && !selectedPet) {
     return null;
   }
 
   // Use provided title if available, otherwise use pet name
-  const headerTitle = title || selectedPet.name;
+  const headerTitle = title || selectedPet?.name || 'Details';
 
   return (
     <View style={styles.header}>

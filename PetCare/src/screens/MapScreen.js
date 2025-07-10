@@ -11,6 +11,13 @@ const MapScreen = () => {
   const navigation = useNavigation();
   const { selectedPet } = usePet();
   
+  // Navigate back to home if no pet is selected
+  useEffect(() => {
+    if (!selectedPet) {
+      navigation.navigate('Home');
+    }
+  }, [selectedPet, navigation]);
+
   if (!selectedPet) {
     return null;
   }

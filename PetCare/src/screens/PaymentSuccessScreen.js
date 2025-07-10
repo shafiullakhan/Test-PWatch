@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -19,26 +19,23 @@ const PaymentSuccessScreen = () => {
   const { selectedPet, clearSelectedPet } = usePet();
   const { lastPaymentResult, clearPaymentResult } = usePayment();
 
+  const handleBackToHome = useCallback(() => {
+    clearPaymentResult();
+    clearSelectedPet();
+    navigation.navigate('Home');
+  }, [clearPaymentResult, clearSelectedPet, navigation]);
+
+  const handleAdoptAnother = useCallback(() => {
+    clearPaymentResult();
+    clearSelectedPet();
+    navigation.navigate('Home');
+  }, [clearPaymentResult, clearSelectedPet, navigation]);
+
   useEffect(() => {
-    // Auto-clear after 30 seconds
-    const timer = setTimeout(() => {
-      handleBackToHome();
-    }, 30000);
-
-    return () => clearTimeout(timer);
+    // Remove auto-clear timer to prevent unexpected navigation
+    // Users can manually navigate using the buttons
+    return () => {}; // No cleanup needed
   }, []);
-
-  const handleBackToHome = () => {
-    clearPaymentResult();
-    clearSelectedPet();
-    navigation.navigate('Home');
-  };
-
-  const handleAdoptAnother = () => {
-    clearPaymentResult();
-    clearSelectedPet();
-    navigation.navigate('Home');
-  };
 
   if (!selectedPet || !lastPaymentResult) {
     return null;

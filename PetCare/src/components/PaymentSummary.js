@@ -20,9 +20,15 @@ const PaymentSummary = () => {
           resizeMode="cover"
         />
         <View style={styles.petDetails}>
-          <Text style={styles.petName}>{selectedPet.name}</Text>
-          <Text style={styles.petBreed}>{selectedPet.breed}</Text>
-          <Text style={styles.petAge}>{selectedPet.age} years old</Text>
+          <Text style={styles.petName} numberOfLines={1} ellipsizeMode="tail">
+            {selectedPet.name}
+          </Text>
+          <Text style={styles.petBreed} numberOfLines={1} ellipsizeMode="tail">
+            {selectedPet.breed}
+          </Text>
+          <Text style={styles.petAge} numberOfLines={1} ellipsizeMode="tail">
+            {selectedPet.age} years old
+          </Text>
         </View>
       </View>
 

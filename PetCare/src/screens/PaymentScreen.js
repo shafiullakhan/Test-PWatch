@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -8,12 +8,13 @@ import {
   Alert,
   ActivityIndicator,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
 import { paymentScreenStyles as styles } from '../styles/paymentScreenStyles';
 import { usePet } from '../context/PetContext';
 import { usePayment } from '../context/PaymentContext';
+import { useDeviceDimensions } from '../hooks';
 import { PaymentMethodCard, PaymentSummary, PetDetailHeader } from '../components';
 
 const PaymentScreen = () => {
@@ -26,6 +27,42 @@ const PaymentScreen = () => {
     selectPaymentMethod, 
     processPayment 
   } = usePayment();
+  const { width, height, isLandscape } = useDeviceDimensions();
+  const scrollViewRef = useRef(null);
+  const [isLayoutReady, setIsLayoutReady] = useState(false);
+
+  // Navigate back to home if no pet is selected
+  useEffect(() => {
+    if (!selectedPet) {
+      navigation.navigate('Home');
+    }
+  }, [selectedPet, navigation]);
+
+  // Reset scroll position when screen comes into focus
+  useFocusEffect(
+    React.useCallback(() => {
+      // Reset layout state
+      setIsLayoutReady(false);
+      
+      // Reset scroll position
+      if (scrollViewRef.current) {
+        scrollViewRef.current.scrollTo({ x: 0, y: 0, animated: false });
+      }
+      
+      // Set layout ready after a short delay
+      setTimeout(() => {
+        setIsLayoutReady(true);
+      }, 100);
+    }, [])
+  );
+
+  // Handle layout ready
+  const handleLayoutReady = () => {
+    if (scrollViewRef.current) {
+      scrollViewRef.current.scrollTo({ x: 0, y: 0, animated: false });
+    }
+    setIsLayoutReady(true);
+  };
 
   if (!selectedPet) {
     return null;
@@ -71,7 +108,18 @@ const PaymentScreen = () => {
       <StatusBar style="light" />
       <PetDetailHeader title="Payment" />
       
-      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+      <ScrollView 
+        ref={scrollViewRef}
+        style={styles.scrollView} 
+        contentContainerStyle={styles.scrollViewContent}
+        showsVerticalScrollIndicator={false}
+        bounces={false}
+        alwaysBounceVertical={false}
+        overScrollMode="never"
+        scrollEventThrottle={16}
+        keyboardShouldPersistTaps="handled"
+        onLayout={handleLayoutReady}
+      >
         <PaymentSummary />
         
         <View style={styles.paymentMethodsSection}>

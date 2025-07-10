@@ -1,7 +1,9 @@
+import React, { useEffect } from 'react';
 import {
   SafeAreaView,
   ScrollView,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { petDetailStyles as styles } from '../styles/petDetailStyles';
 import { usePet } from '../context/PetContext';
@@ -14,7 +16,15 @@ import {
 } from '../components';
 
 const PetDetailScreen = () => {
+  const navigation = useNavigation();
   const { selectedPet: pet } = usePet();
+
+  // Navigate back to home if no pet is selected
+  useEffect(() => {
+    if (!pet) {
+      navigation.navigate('Home');
+    }
+  }, [pet, navigation]);
 
   if (!pet) {
     return null;

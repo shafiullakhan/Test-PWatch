@@ -22,12 +22,18 @@ const PaymentMethodCard = ({ method, isSelected, onSelect }) => {
             />
           </View>
           <View style={styles.methodDetails}>
-            <Text style={styles.methodName}>{method.name}</Text>
+            <Text style={styles.methodName} numberOfLines={1} ellipsizeMode="tail">
+              {method.name}
+            </Text>
             {method.type === 'card' && (
-              <Text style={styles.methodSubtext}>{method.cardNumber}</Text>
+              <Text style={styles.methodSubtext} numberOfLines={1} ellipsizeMode="tail">
+                {method.cardNumber}
+              </Text>
             )}
             {method.type === 'digital_wallet' && (
-              <Text style={styles.methodSubtext}>Touch to pay</Text>
+              <Text style={styles.methodSubtext} numberOfLines={1} ellipsizeMode="tail">
+                Touch to pay
+              </Text>
             )}
           </View>
         </View>

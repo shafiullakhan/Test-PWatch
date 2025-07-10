@@ -9,6 +9,10 @@ export const paymentMethodCardStyles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'transparent',
     ...theme.shadows.sm,
+    minHeight: 80,
+    width: '100%',
+    position: 'relative',
+    alignSelf: 'center',
   },
   selectedCard: {
     borderColor: '#4CAF50',
@@ -18,11 +22,15 @@ export const paymentMethodCardStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: theme.spacing.lg,
+    minHeight: 80,
+    width: '100%',
+    position: 'relative',
   },
   methodInfo: {
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
+    minWidth: 0, // Prevent overflow
   },
   methodIconContainer: {
     width: 48,
@@ -32,9 +40,11 @@ export const paymentMethodCardStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: theme.spacing.md,
+    flexShrink: 0,
   },
   methodDetails: {
     flex: 1,
+    minWidth: 0, // Prevent text overflow
   },
   methodName: {
     fontSize: theme.fontSize.lg,
@@ -48,5 +58,6 @@ export const paymentMethodCardStyles = StyleSheet.create({
   },
   selectionIndicator: {
     marginLeft: theme.spacing.md,
+    flexShrink: 0,
   },
 });
