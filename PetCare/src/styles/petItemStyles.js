@@ -4,15 +4,11 @@ import { theme } from '../constants/theme';
 export const petItemStyles = StyleSheet.create({
   container: {
     backgroundColor: theme.colors.white,
-    padding: 16,
-    marginHorizontal: 16,
-    marginBottom: 12,
-    borderRadius: 16,
-    shadowColor: '#000000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    padding: theme.spacing.lg,
+    marginHorizontal: theme.spacing.lg,
+    marginBottom: theme.spacing.md,
+    borderRadius: theme.borderRadius.lg,
+    ...theme.shadows.sm,
   },
   content: {
     flexDirection: 'row',
@@ -21,26 +17,26 @@ export const petItemStyles = StyleSheet.create({
   image: {
     width: 60,
     height: 60,
-    borderRadius: 30,
-    marginRight: 16,
+    borderRadius: theme.borderRadius.xl,
+    marginRight: theme.spacing.lg,
     backgroundColor: theme.colors.lightGray,
   },
   details: {
     flex: 1,
   },
   name: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: theme.fontSize.xl,
+    fontWeight: theme.fontWeight.bold,
     color: theme.colors.darkGray,
-    marginBottom: 4,
+    marginBottom: theme.spacing.xs,
   },
   breed: {
-    fontSize: 14,
+    fontSize: theme.fontSize.md,
     color: theme.colors.primary,
-    marginBottom: 2,
+    marginBottom: theme.spacing.xs,
   },
   color: {
-    fontSize: 12,
+    fontSize: theme.fontSize.sm,
     color: theme.colors.gray,
   },
 });
