@@ -9,13 +9,18 @@ import { list } from '../constants/mockData';
 import { homeScreenStyles as styles } from '../styles/homeScreenStyles';
 import { HomeHeader, PetItem } from '../components';
 import { HEADER_HEIGHT } from '../styles/headerStyles';
+import { usePet } from '../context/PetContext';
 
 
 const HomeScreen = () => {
   const navigation = useNavigation();
   const scrollY = useRef(new Animated.Value(0)).current;
+  const { selectPet } = usePet();
 
-  const handlePetPress = (item) => navigation.navigate('PetDetail', { pet: item })
+  const handlePetPress = (item) => {
+    selectPet(item);
+    navigation.navigate('PetDetail');
+  }
 
   const renderItem = ({ item }) => <PetItem item={item} onPress={() => handlePetPress(item)} />
 
