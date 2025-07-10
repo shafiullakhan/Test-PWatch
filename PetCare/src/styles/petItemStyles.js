@@ -7,7 +7,7 @@ export const petItemStyles = StyleSheet.create({
     padding: 20,
     marginBottom: 12,
     borderRadius: 16,
-    shadowColor: rgba(0, 0, 0, 0.1),
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.18,
     shadowRadius: 1.0,

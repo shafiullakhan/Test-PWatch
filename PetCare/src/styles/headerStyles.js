@@ -19,7 +19,7 @@ export const headerStyles = StyleSheet.create({
   },
   headerOverlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    backgroundColor: '#4D4D4D',
   },
   headerContent: {
     flex: 1,
@@ -33,7 +33,7 @@ export const headerStyles = StyleSheet.create({
     color: theme.colors.white,
     textAlign: 'center',
     marginBottom: 8,
-    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowColor: '#80000000',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 3,
   },
@@ -42,7 +42,7 @@ export const headerStyles = StyleSheet.create({
     color: theme.colors.white,
     textAlign: 'center',
     opacity: 0.9,
-    textShadowColor: 'rgba(0, 0, 0, 0.5)',
+    textShadowColor: '#80000000',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 2,
   },
