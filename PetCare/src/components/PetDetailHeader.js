@@ -5,7 +5,7 @@ import { petDetailHeaderStyles as styles } from '../styles/petDetailHeaderStyles
 import { theme } from '../constants/theme';
 import { usePet } from '../context/PetContext';
 
-const PetDetailHeader = () => {
+const PetDetailHeader = ({ title }) => {
   const navigation = useNavigation();
   const { selectedPet } = usePet();
 
@@ -17,12 +17,15 @@ const PetDetailHeader = () => {
     return null;
   }
 
+  // Use provided title if available, otherwise use pet name
+  const headerTitle = title || selectedPet.name;
+
   return (
     <View style={styles.header}>
       <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
         <Ionicons name="chevron-back" size={24} color={theme.colors.white} />
       </TouchableOpacity>
-      <Text style={styles.headerTitle}>{selectedPet.name}</Text>
+      <Text style={styles.headerTitle}>{headerTitle}</Text>
     </View>
   );
 };

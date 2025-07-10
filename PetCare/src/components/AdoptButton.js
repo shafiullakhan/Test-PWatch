@@ -1,29 +1,15 @@
-import { TouchableOpacity, Text, Alert } from 'react-native';
+import { TouchableOpacity, Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { adoptButtonStyles as styles } from '../styles/adoptButtonStyles';
 import { usePet } from '../context/PetContext';
 
 const AdoptButton = () => {
+  const navigation = useNavigation();
   const { selectedPet } = usePet();
 
   const handleAdopt = () => {
     if (!selectedPet) return;
-    
-    Alert.alert(
-      "Adopt " + selectedPet.name,
-      "Are you sure you want to adopt " + selectedPet.name + " for AED " + selectedPet.price + "?",
-      [
-        {
-          text: "Cancel",
-          style: "cancel"
-        },
-        {
-          text: "Yes, Adopt!",
-          onPress: () => {
-            Alert.alert("Success!", "Adoption process started for " + selectedPet.name + "! Total cost: AED " + selectedPet.price);
-          }
-        }
-      ]
-    );
+    navigation.navigate('Payment');
   };
 
   if (!selectedPet) {

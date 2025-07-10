@@ -140,7 +140,7 @@ const MapScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       {/* Header  */}
-      <PetDetailHeader petName={petName} />
+      <PetDetailHeader title={`${petName}'s Location`} />
 
       {/* Full Screen Map */}
       <MapView

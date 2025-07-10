@@ -28,6 +28,6 @@ export const petDetailHeaderStyles = StyleSheet.create({
     color: theme.colors.white,
     flex: 1,
     textAlign: 'center',
-    marginRight: theme.spacing.xl,
+    marginRight: theme.spacing.xxl,
   },
 });
