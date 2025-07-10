@@ -1,11 +1,16 @@
 import { TouchableOpacity, Text, Alert } from 'react-native';
 import { adoptButtonStyles as styles } from '../styles/adoptButtonStyles';
+import { usePet } from '../context/PetContext';
 
-const AdoptButton = ({ petName, price }) => {
+const AdoptButton = () => {
+  const { selectedPet } = usePet();
+
   const handleAdopt = () => {
+    if (!selectedPet) return;
+    
     Alert.alert(
-      "Adopt " + petName,
-      "Are you sure you want to adopt " + petName + " for AED " + price + "?",
+      "Adopt " + selectedPet.name,
+      "Are you sure you want to adopt " + selectedPet.name + " for AED " + selectedPet.price + "?",
       [
         {
           text: "Cancel",
@@ -14,16 +19,20 @@ const AdoptButton = ({ petName, price }) => {
         {
           text: "Yes, Adopt!",
           onPress: () => {
-            Alert.alert("Success!", "Adoption process started for " + petName + "! Total cost: AED " + price);
+            Alert.alert("Success!", "Adoption process started for " + selectedPet.name + "! Total cost: AED " + selectedPet.price);
           }
         }
       ]
     );
   };
 
+  if (!selectedPet) {
+    return null;
+  }
+
   return (
     <TouchableOpacity style={styles.adoptButton} onPress={handleAdopt}>
-      <Text style={styles.adoptButtonText}>🧑‍🧑‍🧒 Adopt {petName} - AED {price}</Text>
+      <Text style={styles.adoptButtonText}>🧑‍🧑‍🧒 Adopt {selectedPet.name} - AED {selectedPet.price}</Text>
     </TouchableOpacity>
   );
 };

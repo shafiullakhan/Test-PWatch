@@ -6,4 +6,6 @@ export { petDetailHeaderStyles } from './petDetailHeaderStyles';
 export { petImageStyles } from './petImageStyles';
 export { petInfoCardStyles } from './petInfoCardStyles';
 export { petMapViewStyles } from './petMapViewStyles';
+export { petLocationCardStyles } from './petLocationCardStyles';
+export { mapScreenStyles } from './mapScreenStyles';
 export { adoptButtonStyles } from './adoptButtonStyles';

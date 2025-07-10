@@ -123,4 +123,23 @@ export const petMapViewStyles = StyleSheet.create({
     fontWeight: theme.fontWeight.medium,
     marginTop: theme.spacing.xs,
   },
+  map: {
+    height: 300,
+    borderRadius: theme.borderRadius.md,
+    overflow: 'hidden',
+  },
+  mapViewContainer: {
+    backgroundColor: theme.colors.white,
+    margin: theme.spacing.lg,
+    borderRadius: theme.borderRadius.lg,
+    padding: theme.spacing.lg,
+    ...theme.shadows.sm,
+  },
+  mapViewTitle: {
+    fontSize: theme.fontSize.xl,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.colors.textPrimary,
+    marginBottom: theme.spacing.md,
+    textAlign: 'center',
+  },
 });
