@@ -1,0 +1,126 @@
+import { StyleSheet } from 'react-native';
+import { theme } from '../constants/theme';
+
+export const petMapViewStyles = StyleSheet.create({
+  mapContainer: {
+    backgroundColor: theme.colors.white,
+    margin: theme.spacing.lg,
+    borderRadius: theme.borderRadius.lg,
+    padding: theme.spacing.lg,
+    ...theme.shadows.sm,
+  },
+  mapTitle: {
+    fontSize: theme.fontSize.xl,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.colors.textPrimary,
+    marginBottom: theme.spacing.md,
+    textAlign: 'center',
+  },
+  locationCard: {
+    backgroundColor: theme.colors.background,
+    borderRadius: theme.borderRadius.md,
+    padding: theme.spacing.md,
+    marginBottom: theme.spacing.md,
+    borderLeftWidth: 4,
+    borderLeftColor: theme.colors.primary,
+  },
+  locationTitle: {
+    fontSize: theme.fontSize.lg,
+    fontWeight: theme.fontWeight.semibold,
+    color: theme.colors.textPrimary,
+    marginBottom: theme.spacing.xs,
+  },
+  locationText: {
+    fontSize: theme.fontSize.md,
+    color: theme.colors.textSecondary,
+    marginBottom: theme.spacing.xs,
+  },
+  coordinatesText: {
+    fontSize: theme.fontSize.sm,
+    color: theme.colors.gray,
+    fontFamily: 'monospace',
+  },
+  distanceText: {
+    fontSize: theme.fontSize.md,
+    color: theme.colors.primary,
+    fontWeight: theme.fontWeight.medium,
+    marginTop: theme.spacing.xs,
+  },
+  loadingText: {
+    fontSize: theme.fontSize.md,
+    color: theme.colors.textSecondary,
+    fontStyle: 'italic',
+  },
+  mapPlaceholder: {
+    backgroundColor: theme.colors.background,
+    borderRadius: theme.borderRadius.md,
+    padding: theme.spacing.xl,
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: 100,
+    borderWidth: 2,
+    borderColor: theme.colors.lightGray,
+    borderStyle: 'dashed',
+  },
+  mapPlaceholderText: {
+    fontSize: theme.fontSize.huge,
+    marginBottom: theme.spacing.sm,
+  },
+  mapNote: {
+    fontSize: theme.fontSize.md,
+    color: theme.colors.textSecondary,
+    textAlign: 'center',
+  },
+  mapSubNote: {
+    fontSize: theme.fontSize.sm,
+    color: theme.colors.gray,
+    textAlign: 'center',
+    marginTop: theme.spacing.xs,
+  },
+  petLocationCard: {
+    backgroundColor: theme.colors.primaryLight,
+    borderRadius: theme.borderRadius.md,
+    padding: theme.spacing.lg,
+    marginBottom: theme.spacing.md,
+    borderWidth: 2,
+    borderColor: theme.colors.primary,
+  },
+  petLocationTitle: {
+    fontSize: theme.fontSize.lg,
+    fontWeight: theme.fontWeight.bold,
+    color: theme.colors.white,
+    marginBottom: theme.spacing.xs,
+  },
+  petLocationAddress: {
+    fontSize: theme.fontSize.md,
+    color: theme.colors.white,
+    marginBottom: theme.spacing.xs,
+    fontWeight: theme.fontWeight.medium,
+  },
+  mapVisualization: {
+    backgroundColor: theme.colors.white,
+    borderRadius: theme.borderRadius.md,
+    padding: theme.spacing.md,
+    marginTop: theme.spacing.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: 80,
+  },
+  mapIcon: {
+    fontSize: theme.fontSize.huge,
+    marginBottom: theme.spacing.sm,
+  },
+  locationPin: {
+    alignItems: 'center',
+  },
+  pinIcon: {
+    fontSize: theme.fontSize.xl,
+    color: theme.colors.primary,
+  },
+  pinLabel: {
+    fontSize: theme.fontSize.sm,
+    color: theme.colors.textPrimary,
+    fontWeight: theme.fontWeight.medium,
+    marginTop: theme.spacing.xs,
+  },
+});

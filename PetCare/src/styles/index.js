@@ -2,3 +2,8 @@ export { homeScreenStyles } from './homeScreenStyles';
 export { petItemStyles } from './petItemStyles';
 export { headerStyles, HEADER_HEIGHT } from './headerStyles';
 export { petDetailStyles } from './petDetailStyles';
+export { petDetailHeaderStyles } from './petDetailHeaderStyles';
+export { petImageStyles } from './petImageStyles';
+export { petInfoCardStyles } from './petInfoCardStyles';
+export { petMapViewStyles } from './petMapViewStyles';
+export { adoptButtonStyles } from './adoptButtonStyles';
